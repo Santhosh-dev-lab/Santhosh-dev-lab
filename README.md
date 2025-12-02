@@ -1,25 +1,20 @@
-<h1 align="center">Hi, I'm [Your Name] 🚀</h1>
-<h3 align="center">A developer passionate about [Your Interest 1] and [Your Interest 2]</h3>
+# Hi there, I'm [Your Name]! 👋
 
-<p align="center">
-<img src="https://komarev.com/ghpvc/?username=[Santhosh-dev-lab]&label=Profile%20Views&color=0e75b6&style=flat" alt="counts" />
+I'm a passionate **Software Developer** from [Your Location]. I love building software that solves real-world problems.
+
+- 🔭 I’m currently working on AIRRA - AI Release Risk Analyzer
+- 📫 How to reach me: kunamsanthosh992@gmail.com or have a look on <a href="https://kunamsanthosh.dpdns.org">Portfolio</a>
+
+### 🛠️ Languages and Tools
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=js,html,css,react,python,git,vscode" />
+  </a>
 </p>
 
----
+### 🔗 Connect with me
+[<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
+[<img align="left" alt="Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
 
-### 📊 My GitHub Stats
-
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Santhosh-dev-lab&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Santhosh-dev-lab&layout=compact&theme=tokyonight"/>
-</p>
-
-### 💻 Tech Stack
-
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
----
-
-### ⚡ Fun Fact
-I think tabs are better than spaces (or vice versa)!
+[linkedin]: https://linkedin.com/in/your-profile
+[twitter]: https://twitter.com/your-handle
