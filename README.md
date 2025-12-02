@@ -1,6 +1,6 @@
-# Hi there, I'm [Your Name]! 👋
+# Hi there, I'm Santhosh! 👋
 
-I'm a passionate **Software Developer** from [Your Location]. I love building software that solves real-world problems.
+I'm a passionate **Software Developer** from India. I love building software that solves real-world problems.
 
 - 🔭 I’m currently working on AIRRA - AI Release Risk Analyzer
 - 📫 How to reach me: kunamsanthosh992@gmail.com or have a look on <a href="https://kunamsanthosh.dpdns.org">Portfolio</a>
@@ -8,13 +8,13 @@ I'm a passionate **Software Developer** from [Your Location]. I love building so
 ### 🛠️ Languages and Tools
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,html,css,react,python,git,vscode" />
+    <img src="https://skillicons.dev/icons?i=js,react,python,git,vscode,aws,docker,kubernetes,kafka" />
   </a>
 </p>
 
 ### 🔗 Connect with me
 [<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
+[<img align="left" alt="Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/x.svg" />][twitter]
 
-[linkedin]: https://linkedin.com/in/your-profile
-[twitter]: https://twitter.com/your-handle
+[linkedin]: https://www.linkedin.com/in/santhoshkunam/
+[X]: https://x.com/Kunamsanthosh?t=W9WiyAzjeP6cW5K6oeAI6A&s=09
