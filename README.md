@@ -13,7 +13,7 @@ I'm a passionate **Software Developer** from India. I love building software tha
 </p>
 
 ### 🔗 Connect with me
-[<img align="left" alt="LinkedIn" width="22px" src="https://images.pond5.com/4k-rotating-3d-linkedin-logo-072123683_prevstill.jpeg" />][linkedin]
+[<img align="left" alt="LinkedIn" width="22px" src="https://img.freepik.com/free-photo/3d-cartoon-linkedin-logo-blue-background_23-2152000225.jpg?semt=ais_hybrid&w=740&q=80" />][linkedin]
 
 
 [linkedin]: https://www.linkedin.com/in/santhoshkunam/
