@@ -1,5 +1,9 @@
 # Hi there, I'm Santhosh! 👋
 
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=100&color=F7F7F7&background=00000000&center=true&vCenter=true&width=435&lines=Hello!;I+am+a+backend+and+devOps+Guy.;I+build+cool+stuff." alt="Typing SVG" />
+</h1>
+
 I'm a passionate **Software Developer** from India. I love building software that solves real-world problems.
 
 - 🔭 I’m currently working on AIRRA - AI Release Risk Analyzer
