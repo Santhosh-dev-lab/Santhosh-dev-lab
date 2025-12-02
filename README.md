@@ -8,7 +8,7 @@ I'm a passionate **Software Developer** from India. I love building software tha
 ### 🛠️ Languages and Tools
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,react,python,git,vscode,aws,docker,kubernetes,kafka,oracle cloud" />
+    <img src="https://skillicons.dev/icons?i=js,react,python,git,vscode,aws,docker,kubernetes,kafka,oracle" />
   </a>
 </p>
 
