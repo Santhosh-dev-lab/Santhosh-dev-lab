@@ -6,7 +6,7 @@
 
 I'm a passionate **Software Developer** from India. I love building software that solves real-world problems.
 
-- 🔭 I’m currently working on AIRRA - AI Release Risk Analyzer
+- 🔭 I’m currently working on MindFlow-AI -- An AI tool that generates mindmaps.
 - 📫 How to reach me: kunamsanthosh992@gmail.com or have a look on <a href="https://kunamsanthosh.dpdns.org">Portfolio</a>
 
 ### 🛠️ Languages and Tools
