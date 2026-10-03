@@ -5,34 +5,96 @@ on:
     - cron: "0 18 * * *"
   workflow_dispatch:
 
-concurrency:
-  group: profile-3d-contrib
-  cancel-in-progress: true
-
 permissions:
   contents: write
+
+concurrency:
+  group: github-profile-3d-contrib
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: generate-github-profile-3d-contrib
+    name: Generate GitHub Profile 3D Contrib
 
     steps:
-      - uses: actions/checkout@v5
+      # Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
-      - uses: yoshi389111/github-profile-3d-contrib@latest
+      # Generate all standard 3D contribution graphs
+      - name: Generate 3D Contribution Graph
+        uses: yoshi389111/github-profile-3d-contrib@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
-      - name: Commit & Push
+      # Create dark Git Block version
+      - name: Create Dark Git Block
+        shell: bash
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          INPUT="profile-3d-contrib/profile-gitblock.svg"
+          OUTPUT="profile-3d-contrib/profile-gitblock-dark.svg"
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          src = Path("profile-3d-contrib/profile-gitblock.svg")
+          dst = Path("profile-3d-contrib/profile-gitblock-dark.svg")
+
+          svg = src.read_text(encoding="utf-8")
+
+          # Dark GitHub-style background
+          svg = re.sub(
+              r'(<rect[^>]*fill=")#[Ff]{6}(")',
+              r'\g<1>#0d1117\2',
+              svg
+          )
+
+          # Common white backgrounds
+          svg = svg.replace("#ffffff", "#0d1117")
+          svg = svg.replace("#FFFFFF", "#0d1117")
+
+          # Darken/lighten text appropriately
+          svg = svg.replace("#000000", "#f0f6fc")
+          svg = svg.replace("#00000f", "#f0f6fc")
+
+          # Radar/chart text and borders
+          svg = svg.replace("#666666", "#8b949e")
+          svg = svg.replace("#666", "#8b949e")
+          svg = svg.replace("#999999", "#8b949e")
+          svg = svg.replace("#aaaaaa", "#8b949e")
+
+          # Contribution empty cells
+          svg = svg.replace("#f8f8f8", "#161b22")
+          svg = svg.replace("#f5f5f5", "#161b22")
+          svg = svg.replace("#eeeeee", "#161b22")
+
+          dst.write_text(svg, encoding="utf-8")
+
+          print(f"Created {dst}")
+          PY
+
+      # Commit generated files
+      - name: Commit & Push
+        shell: bash
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
 
           git add -A .
 
-          if git commit -m "generated"; then
-            git pull --rebase origin main
-            git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
           fi
+
+          git commit -m "generated"
+
+          # Get any changes made to main while the action was running
+          git pull --rebase origin main
+
+          git push origin HEAD:main
