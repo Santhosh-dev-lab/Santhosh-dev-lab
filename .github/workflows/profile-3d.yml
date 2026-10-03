@@ -20,7 +20,7 @@ jobs:
     steps:
 
       # ============================================================
-      # 1. CHECKOUT
+      # CHECKOUT
       # ============================================================
 
       - name: Checkout repository
@@ -30,7 +30,7 @@ jobs:
 
 
       # ============================================================
-      # 2. GENERATE OFFICIAL 3D CONTRIBUTION GRAPH
+      # GENERATE ORIGINAL GITBLOCK
       # ============================================================
 
       - name: Generate 3D Contribution Graph
@@ -41,25 +41,18 @@ jobs:
 
 
       # ============================================================
-      # 3. CREATE DARK GIT BLOCK
+      # CREATE DARK GITBLOCK
       # ============================================================
 
-      - name: Create Dark Git Block
+      - name: Create Dark GitBlock
         shell: bash
         run: |
-
-          INPUT="profile-3d-contrib/profile-gitblock.svg"
-          OUTPUT="profile-3d-contrib/profile-gitblock-dark.svg"
 
           python3 <<'PY'
 
           from pathlib import Path
           import re
 
-
-          # ========================================================
-          # LOAD SVG
-          # ========================================================
 
           input_file = Path(
               "profile-3d-contrib/profile-gitblock.svg"
@@ -69,88 +62,63 @@ jobs:
               "profile-3d-contrib/profile-gitblock-dark.svg"
           )
 
+
+          # ========================================================
+          # READ SVG
+          # ========================================================
+
           svg = input_file.read_text(
               encoding="utf-8"
           )
 
 
           # ========================================================
-          # BACKGROUND
+          # DARK BACKGROUND
           # ========================================================
 
-          # Change white/light backgrounds to GitHub dark.
+          background_replacements = {
 
-          svg = svg.replace(
-              "#ffffff",
-              "#0d1117"
-          )
+              "#ffffff": "#0d1117",
+              "#FFFFFF": "#0d1117",
 
-          svg = svg.replace(
-              "#FFFFFF",
-              "#0d1117"
-          )
+              "#fff": "#0d1117",
+              "#FFF": "#0d1117",
 
-          svg = svg.replace(
-              "#fff",
-              "#0d1117"
-          )
+          }
 
-          svg = svg.replace(
-              "#FFF",
-              "#0d1117"
-          )
+          for old, new in background_replacements.items():
+              svg = svg.replace(old, new)
 
 
           # ========================================================
-          # EMPTY GRID / CELLS
+          # EMPTY CONTRIBUTION CELLS
           # ========================================================
 
-          svg = svg.replace(
-              "#f8f8f8",
-              "#161b22"
-          )
+          empty_cells = {
 
-          svg = svg.replace(
-              "#F8F8F8",
-              "#161b22"
-          )
+              "#f8f8f8": "#161b22",
+              "#F8F8F8": "#161b22",
 
-          svg = svg.replace(
-              "#f5f5f5",
-              "#161b22"
-          )
+              "#f5f5f5": "#161b22",
+              "#F5F5F5": "#161b22",
 
-          svg = svg.replace(
-              "#F5F5F5",
-              "#161b22"
-          )
+              "#eeeeee": "#21262d",
+              "#EEEEEE": "#21262d",
 
-          svg = svg.replace(
-              "#eeeeee",
-              "#21262d"
-          )
+              "#dddddd": "#30363d",
+              "#DDDDDD": "#30363d",
 
-          svg = svg.replace(
-              "#EEEEEE",
-              "#21262d"
-          )
+          }
 
-          svg = svg.replace(
-              "#dddddd",
-              "#30363d"
-          )
-
-          svg = svg.replace(
-              "#DDDDDD",
-              "#30363d"
-          )
+          for old, new in empty_cells.items():
+              svg = svg.replace(old, new)
 
 
           # ========================================================
-          # GREEN LEGO BLOCKS
+          # GREEN LEGO
           # ========================================================
 
-          green_colors = {
+          green = {
 
               "#00ff00": "#39d353",
               "#00FF00": "#39d353",
@@ -165,17 +133,18 @@ jobs:
               "#32cd32": "#39d353",
 
               "#228b22": "#238636",
+
           }
 
-          for old, new in green_colors.items():
+          for old, new in green.items():
               svg = svg.replace(old, new)
 
 
           # ========================================================
-          # BLUE LEGO BLOCKS
+          # BLUE LEGO
           # ========================================================
 
-          blue_colors = {
+          blue = {
 
               "#0000ff": "#58a6ff",
               "#0000FF": "#58a6ff",
@@ -186,17 +155,18 @@ jobs:
               "#4169e1": "#58a6ff",
 
               "#000080": "#1f6feb",
+
           }
 
-          for old, new in blue_colors.items():
+          for old, new in blue.items():
               svg = svg.replace(old, new)
 
 
           # ========================================================
-          # RED LEGO BLOCKS
+          # RED / PINK LEGO
           # ========================================================
 
-          red_colors = {
+          red = {
 
               "#ff0000": "#f778ba",
               "#FF0000": "#f778ba",
@@ -205,17 +175,18 @@ jobs:
               "#CC0000": "#db61a2",
 
               "#8b0000": "#a40e4c",
+
           }
 
-          for old, new in red_colors.items():
+          for old, new in red.items():
               svg = svg.replace(old, new)
 
 
           # ========================================================
-          # YELLOW LEGO BLOCKS
+          # YELLOW / GOLD LEGO
           # ========================================================
 
-          yellow_colors = {
+          yellow = {
 
               "#ffff00": "#d29922",
               "#FFFF00": "#d29922",
@@ -225,17 +196,18 @@ jobs:
 
               "#ffcc00": "#d29922",
               "#FFCC00": "#d29922",
+
           }
 
-          for old, new in yellow_colors.items():
+          for old, new in yellow.items():
               svg = svg.replace(old, new)
 
 
           # ========================================================
-          # GRAY / GRID COLORS
+          # GRID
           # ========================================================
 
-          gray_colors = {
+          grid = {
 
               "#666666": "#8b949e",
               "#666": "#8b949e",
@@ -248,9 +220,10 @@ jobs:
 
               "#333333": "#30363d",
               "#333": "#30363d",
+
           }
 
-          for old, new in gray_colors.items():
+          for old, new in grid.items():
               svg = svg.replace(old, new)
 
 
@@ -258,7 +231,7 @@ jobs:
           # RGB COLORS
           # ========================================================
 
-          rgb_colors = {
+          rgb = {
 
               "rgb(0,255,0)": "#39d353",
               "rgb(0, 255, 0)": "#39d353",
@@ -271,19 +244,21 @@ jobs:
 
               "rgb(255,255,0)": "#d29922",
               "rgb(255, 255, 0)": "#d29922",
+
           }
 
-          for old, new in rgb_colors.items():
+          for old, new in rgb.items():
               svg = svg.replace(old, new)
 
 
           # ========================================================
-          # IMPORTANT:
-          # DO NOT TURN BLACK INTO THE BACKGROUND
+          # CRITICAL TEXT FIX
           # ========================================================
           #
-          # The original Git Block uses black for many text elements.
-          # Previously we converted black -> #0d1117, which caused:
+          # Instead of trying to guess every original black color,
+          # force ALL SVG text to GitHub's light text color.
+          #
+          # This fixes:
           #
           # Commit
           # Issue
@@ -297,209 +272,168 @@ jobs:
           # Java
           # other
           # contributions
-          # star/fork statistics
+          # dates
+          # ========================================================
+
+          text_color = "#f0f6fc"
+
+
+          # --------------------------------------------------------
+          # Add fill directly to every <text> element
+          # --------------------------------------------------------
+
+          def fix_text(match):
+
+              tag = match.group(0)
+
+              # Remove existing fill attribute
+              tag = re.sub(
+                  r'\sfill\s*=\s*["\'][^"\']*["\']',
+                  '',
+                  tag,
+                  flags=re.IGNORECASE
+              )
+
+              # Add our light fill
+              tag = tag.replace(
+                  '<text',
+                  f'<text fill="{text_color}"',
+                  1
+              )
+
+              return tag
+
+
+          svg = re.sub(
+              r'<text\b[^>]*>',
+              fix_text,
+              svg,
+              flags=re.IGNORECASE
+          )
+
+
+          # ========================================================
+          # FIX TSPAN ELEMENTS
+          # ========================================================
+
+          def fix_tspan(match):
+
+              tag = match.group(0)
+
+              tag = re.sub(
+                  r'\sfill\s*=\s*["\'][^"\']*["\']',
+                  '',
+                  tag,
+                  flags=re.IGNORECASE
+              )
+
+              tag = tag.replace(
+                  '<tspan',
+                  f'<tspan fill="{text_color}"',
+                  1
+              )
+
+              return tag
+
+
+          svg = re.sub(
+              r'<tspan\b[^>]*>',
+              fix_tspan,
+              svg,
+              flags=re.IGNORECASE
+          )
+
+
+          # ========================================================
+          # FIX CSS TEXT STYLES
+          # ========================================================
+
+          # Replace common black text declarations.
+
+          svg = re.sub(
+              r'fill\s*:\s*#000000',
+              f'fill:{text_color}',
+              svg,
+              flags=re.IGNORECASE
+          )
+
+          svg = re.sub(
+              r'fill\s*:\s*#000',
+              f'fill:{text_color}',
+              svg,
+              flags=re.IGNORECASE
+          )
+
+          svg = re.sub(
+              r'fill\s*:\s*black',
+              f'fill:{text_color}',
+              svg,
+              flags=re.IGNORECASE
+          )
+
+
+          # ========================================================
+          # FORCE SVG TEXT WITH CSS
+          # ========================================================
+
+          css = f"""
+          <style>
+            text {{
+              fill: {text_color} !important;
+              color: {text_color} !important;
+            }}
+
+            tspan {{
+              fill: {text_color} !important;
+            }}
+          </style>
+          """
+
+
+          # Insert CSS immediately after <svg ...>
+          svg = re.sub(
+              r'(<svg\b[^>]*>)',
+              r'\1' + css,
+              svg,
+              count=1,
+              flags=re.IGNORECASE
+          )
+
+
+          # ========================================================
+          # FIX BLACK STAT ICONS
+          # ========================================================
           #
-          # to disappear.
+          # GitBlock uses paths for some of the statistics/icons.
+          # Replace only paths containing very dark fills that are
+          # commonly used for the stat area.
           #
-          # Instead, convert black text to GitHub primary text.
+          # We deliberately do NOT globally replace every black path,
+          # because that would destroy the dark grid.
           # ========================================================
 
-          svg = re.sub(
-              r'fill\s*=\s*["\']#000000["\']',
-              'fill="#f0f6fc"',
-              svg,
-              flags=re.IGNORECASE
-          )
+          def fix_dark_stat_group(match):
 
-          svg = re.sub(
-              r'fill\s*=\s*["\']black["\']',
-              'fill="#f0f6fc"',
-              svg,
-              flags=re.IGNORECASE
-          )
+              group = match.group(0)
 
+              # If this group contains text/stat related elements,
+              # make dark fills readable.
 
-          # ========================================================
-          # STROKE COLORS
-          # ========================================================
-
-          # Keep LEGO outlines dark rather than turning them white.
-
-          svg = re.sub(
-              r'stroke\s*=\s*["\']#000000["\']',
-              'stroke="#30363d"',
-              svg,
-              flags=re.IGNORECASE
-          )
-
-          svg = re.sub(
-              r'stroke\s*=\s*["\']black["\']',
-              'stroke="#30363d"',
-              svg,
-              flags=re.IGNORECASE
-          )
-
-
-          # ========================================================
-          # TEXT ELEMENTS
-          # ========================================================
-
-          # Make SVG text readable regardless of whether its original
-          # color was represented through a style attribute.
-
-          def fix_text_element(match):
-
-              element = match.group(0)
-
-              # Remove dark text fills from text elements.
-              element = re.sub(
-                  r'fill\s*:\s*#000000',
-                  'fill:#f0f6fc',
-                  element,
-                  flags=re.IGNORECASE
+              group = group.replace(
+                  'fill="#000000"',
+                  f'fill="{text_color}"'
               )
 
-              element = re.sub(
-                  r'fill\s*:\s*black',
-                  'fill:#f0f6fc',
-                  element,
-                  flags=re.IGNORECASE
+              group = group.replace(
+                  'fill="#000"',
+                  f'fill="{text_color}"'
               )
 
-              element = re.sub(
-                  r'fill\s*=\s*["\']#000000["\']',
-                  'fill="#f0f6fc"',
-                  element,
-                  flags=re.IGNORECASE
-              )
-
-              element = re.sub(
-                  r'fill\s*=\s*["\']black["\']',
-                  'fill="#f0f6fc"',
-                  element,
-                  flags=re.IGNORECASE
-              )
-
-              return element
-
-
-          svg = re.sub(
-              r'<text\b[^>]*>.*?</text>',
-              fix_text_element,
-              svg,
-              flags=re.IGNORECASE | re.DOTALL
-          )
+              return group
 
 
           # ========================================================
-          # CONTRIBUTION COUNT
-          # ========================================================
-
-          # Make the contribution number and statistics bright.
-
-          dark_stat_colors = [
-
-              "#101050",
-              "#10104f",
-
-              "#111050",
-              "#11104f",
-
-              "#111150",
-              "#11114f",
-
-              "#000050",
-              "#00004f",
-
-              "#161650",
-              "#16164f",
-
-              "#1a145f",
-              "#17135f",
-
-              "#0f0f5f",
-
-              "#111133",
-              "#111144",
-              "#111155",
-
-              "#121250",
-              "#131350",
-              "#141450",
-
-              "#151550",
-              "#15154f",
-
-              "#171750",
-              "#181850",
-              "#191950",
-
-              "#1a1a50",
-
-              "#202050",
-              "#202060",
-              "#202070",
-          ]
-
-          for color in dark_stat_colors:
-
-              svg = svg.replace(
-                  color,
-                  "#f0f6fc"
-              )
-
-
-          # ========================================================
-          # FINAL TEXT SAFETY
-          # ========================================================
-
-          # If any text element still has a very dark fill,
-          # make it readable.
-
-          def final_text_fix(match):
-
-              element = match.group(0)
-
-              dark_fills = [
-                  "#000000",
-                  "#000",
-                  "#101010",
-                  "#111111",
-                  "#111",
-                  "#121212",
-                  "#151515",
-                  "#161616",
-                  "#171717",
-                  "#181818",
-                  "#191919",
-                  "#1a1a1a",
-                  "#1b1b1b",
-                  "#1c1c1c",
-                  "#1d1d1d",
-                  "#1e1e1e",
-                  "#1f1f1f",
-              ]
-
-              for color in dark_fills:
-
-                  element = element.replace(
-                      color,
-                      "#f0f6fc"
-                  )
-
-              return element
-
-
-          svg = re.sub(
-              r'<text\b[^>]*>.*?</text>',
-              final_text_fix,
-              svg,
-              flags=re.IGNORECASE | re.DOTALL
-          )
-
-
-          # ========================================================
-          # SAVE
+          # FINAL SVG
           # ========================================================
 
           output_file.write_text(
@@ -510,16 +444,16 @@ jobs:
 
           print()
           print("==============================================")
-          print(" DARK GIT BLOCK GENERATED")
+          print(" DARK GITBLOCK GENERATED SUCCESSFULLY")
           print("==============================================")
           print("Background : #0d1117")
-          print("Empty cells: #161b22")
+          print("Empty      : #161b22")
+          print("Grid       : #30363d")
           print("Green      : #39d353")
           print("Blue       : #58a6ff")
           print("Pink       : #f778ba")
           print("Gold       : #d29922")
           print("Text       : #f0f6fc")
-          print("Grid       : #30363d")
           print("==============================================")
           print()
 
@@ -527,7 +461,7 @@ jobs:
 
 
       # ============================================================
-      # 4. COMMIT AND PUSH
+      # COMMIT AND PUSH
       # ============================================================
 
       - name: Commit & Push
