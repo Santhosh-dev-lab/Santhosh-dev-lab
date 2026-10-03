@@ -1,7 +1,7 @@
 <p align="center">
   <img
     src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif"
-    width="600"
+    width="100%"
     alt="Animated Banner"
   />
 </p>
@@ -31,78 +31,33 @@
 - 🔭 **MindFlow-AI** — An AI tool that generates mindmaps.
 - 🧠 Exploring **AI, Machine Learning and Research**
 - ☁️ Building with **AWS, Docker and Kubernetes**
-- ⚙️ Interested in **backend systems, distributed systems and DevOps**
+- ⚙️ Interested in **Backend Systems, Cloud and DevOps**
 
 ---
 
 ### 🛠️ Languages & Tools
 
-<p align="center">
+<div align="center">
 
-  <img
-    src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif"
-    width="70"
-    height="70"
-    alt="JavaScript"
-  />
+<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="48" height="48" alt="JavaScript">
+&nbsp;
+<img src="https://skillicons.dev/icons?i=aws" width="48" height="48" alt="AWS">
+&nbsp;
+<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="48" height="48" alt="React">
+&nbsp;
+<img src="https://skillicons.dev/icons?i=docker" width="48" height="48" alt="Docker">
+&nbsp;
+<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="48" height="48" alt="Python">
+&nbsp;
+<img src="https://skillicons.dev/icons?i=kubernetes" width="48" height="48" alt="Kubernetes">
+&nbsp;
+<img src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="48" height="48" alt="Git">
+&nbsp;
+<img src="https://skillicons.dev/icons?i=kafka" width="48" height="48" alt="Kafka">
+&nbsp;
+<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="48" height="48" alt="VS Code">
 
-  <img
-    src="https://skillicons.dev/icons?i=aws"
-    width="70"
-    height="70"
-    alt="AWS"
-  />
-
-  <img
-    src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif"
-    width="70"
-    height="70"
-    alt="React"
-  />
-
-  <img
-    src="https://skillicons.dev/icons?i=docker"
-    width="70"
-    height="70"
-    alt="Docker"
-  />
-
-  <img
-    src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif"
-    width="70"
-    height="70"
-    alt="Python"
-  />
-
-  <img
-    src="https://skillicons.dev/icons?i=kubernetes"
-    width="70"
-    height="70"
-    alt="Kubernetes"
-  />
-
-  <img
-    src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif"
-    width="70"
-    height="70"
-    alt="Git"
-  />
-
-  <img
-    src="https://skillicons.dev/icons?i=kafka"
-    width="70"
-    height="70"
-    alt="Kafka"
-  />
-
-  <img
-    src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif"
-    width="70"
-    height="70"
-    alt="VS Code"
-  />
-
-</p>
+</div>
 
 ---
 
@@ -122,25 +77,25 @@
 
 <p align="center">
 
-  <a href="mailto:kunamsanthosh992@gmail.com">
-    <img
-      src="https://img.shields.io/badge/Email-kunamsanthosh992%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white"
-      alt="Email"
-    />
-  </a>
+<a href="mailto:kunamsanthosh992@gmail.com">
+  <img
+    src="https://img.shields.io/badge/Email-kunamsanthosh992%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white"
+    alt="Email"
+  />
+</a>
 
-  <a href="https://kunamsanthosh.dpdns.org">
-    <img
-      src="https://img.shields.io/badge/Portfolio-Visit-blue?style=for-the-badge&logo=google-chrome&logoColor=white"
-      alt="Portfolio"
-    />
-  </a>
+<a href="https://kunamsanthosh.dpdns.org">
+  <img
+    src="https://img.shields.io/badge/Portfolio-Visit-blue?style=for-the-badge&logo=google-chrome&logoColor=white"
+    alt="Portfolio"
+  />
+</a>
 
-  <a href="https://www.linkedin.com/in/santhoshkunam/">
-    <img
-      src="https://img.shields.io/badge/LinkedIn-Santhosh_Kunam-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-      alt="LinkedIn"
-    />
-  </a>
+<a href="https://www.linkedin.com/in/santhoshkunam/">
+  <img
+    src="https://img.shields.io/badge/LinkedIn-Santhosh_Kunam-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
+    alt="LinkedIn"
+  />
+</a>
 
 </p>
