@@ -34,8 +34,8 @@ I'm a passionate **Software Developer** from India. I love building software tha
 
 <p align="center">
   <img
-    src="./profile-3d-contrib/profile-green-animate.svg"
-    width="900"
+    src="./profile-3d-contrib/profile-gitblock-dark.svg"
+    width="100%"
     alt="3D GitHub Contribution Graph"
   />
 </p>
