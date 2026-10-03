@@ -10,11 +10,25 @@ I'm a passionate **Software Developer** from India. I love building software tha
 - 📫 How to reach me: kunamsanthosh992@gmail.com or have a look on <a href="https://kunamsanthosh.dpdns.org">Portfolio</a>
 
 ### 🛠️ Languages and Tools
+
+
 <p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif"/>
-    <img src="https://skillicons.dev/icons?i=js,react,python,git,vscode,aws,docker,kubernetes,kafka,oracle" />
-  </a>
+
+  <!-- Animated JavaScript -->
+  <img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif"
+       width="80"
+       height="80"
+       alt="JavaScript" />
+  <img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif"
+       width="80"
+       height="80"
+       alt="React" />
+
+      
+  <!-- Other Technologies -->
+  <img src="https://skillicons.dev/icons?i=react,python,git,vscode,aws,docker,kubernetes,kafka,oracle"
+       alt="Technologies" />
+
 </p>
 
 ### 🔗 Connect with me
