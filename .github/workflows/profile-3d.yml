@@ -18,71 +18,267 @@ jobs:
     name: Generate GitHub Profile 3D Contrib
 
     steps:
-      # Checkout repository
-      - name: Checkout
+
+      # ============================================================
+      # 1. CHECKOUT
+      # ============================================================
+
+      - name: Checkout repository
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      # Generate all standard 3D contribution graphs
+
+      # ============================================================
+      # 2. GENERATE OFFICIAL 3D CONTRIBUTION FILES
+      # ============================================================
+
       - name: Generate 3D Contribution Graph
         uses: yoshi389111/github-profile-3d-contrib@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
-      # Create dark Git Block version
+
+      # ============================================================
+      # 3. CREATE DARK GIT BLOCK VERSION
+      # ============================================================
+
       - name: Create Dark Git Block
         shell: bash
         run: |
+
           INPUT="profile-3d-contrib/profile-gitblock.svg"
           OUTPUT="profile-3d-contrib/profile-gitblock-dark.svg"
 
-          python3 - <<'PY'
+          python3 <<'PY'
+
           from pathlib import Path
           import re
 
-          src = Path("profile-3d-contrib/profile-gitblock.svg")
-          dst = Path("profile-3d-contrib/profile-gitblock-dark.svg")
-
-          svg = src.read_text(encoding="utf-8")
-
-          # Dark GitHub-style background
-          svg = re.sub(
-              r'(<rect[^>]*fill=")#[Ff]{6}(")',
-              r'\g<1>#0d1117\2',
-              svg
+          input_file = Path(
+              "profile-3d-contrib/profile-gitblock.svg"
           )
 
-          # Common white backgrounds
-          svg = svg.replace("#ffffff", "#0d1117")
-          svg = svg.replace("#FFFFFF", "#0d1117")
+          output_file = Path(
+              "profile-3d-contrib/profile-gitblock-dark.svg"
+          )
 
-          # Darken/lighten text appropriately
-          svg = svg.replace("#000000", "#f0f6fc")
-          svg = svg.replace("#00000f", "#f0f6fc")
+          svg = input_file.read_text(
+              encoding="utf-8"
+          )
 
-          # Radar/chart text and borders
-          svg = svg.replace("#666666", "#8b949e")
-          svg = svg.replace("#666", "#8b949e")
-          svg = svg.replace("#999999", "#8b949e")
-          svg = svg.replace("#aaaaaa", "#8b949e")
 
-          # Contribution empty cells
-          svg = svg.replace("#f8f8f8", "#161b22")
-          svg = svg.replace("#f5f5f5", "#161b22")
-          svg = svg.replace("#eeeeee", "#161b22")
+          # ========================================================
+          # GITHUB DARK BACKGROUND
+          # ========================================================
 
-          dst.write_text(svg, encoding="utf-8")
+          replacements = {
 
-          print(f"Created {dst}")
+              # White backgrounds
+              "#ffffff": "#0d1117",
+              "#FFFFFF": "#0d1117",
+              "#fff": "#0d1117",
+              "#FFF": "#0d1117",
+
+              # Light backgrounds
+              "#f8f8f8": "#161b22",
+              "#F8F8F8": "#161b22",
+
+              "#f5f5f5": "#161b22",
+              "#F5F5F5": "#161b22",
+
+              "#eeeeee": "#21262d",
+              "#EEEEEE": "#21262d",
+
+              "#dddddd": "#30363d",
+              "#DDDDDD": "#30363d",
+
+              # Black
+              "#000000": "#0d1117",
+              "#000000": "#0d1117",
+
+              # ====================================================
+              # GREEN
+              # ====================================================
+
+              "#00ff00": "#39d353",
+              "#00FF00": "#39d353",
+
+              "#00cc00": "#2ea043",
+              "#00CC00": "#2ea043",
+
+              "#00b300": "#2ea043",
+
+              "#008000": "#238636",
+
+              "#32cd32": "#39d353",
+              "#228b22": "#238636",
+
+              # ====================================================
+              # BLUE
+              # ====================================================
+
+              "#0000ff": "#58a6ff",
+              "#0000FF": "#58a6ff",
+
+              "#0000cc": "#388bfd",
+              "#0000CC": "#388bfd",
+
+              "#4169e1": "#58a6ff",
+              "#000080": "#1f6feb",
+
+              # ====================================================
+              # RED -> PINK
+              # ====================================================
+
+              "#ff0000": "#f778ba",
+              "#FF0000": "#f778ba",
+
+              "#cc0000": "#db61a2",
+              "#CC0000": "#db61a2",
+
+              "#8b0000": "#a40e4c",
+
+              # ====================================================
+              # YELLOW -> GOLD
+              # ====================================================
+
+              "#ffff00": "#d29922",
+              "#FFFF00": "#d29922",
+
+              "#ffd700": "#e3b341",
+              "#FFD700": "#e3b341",
+
+              "#ffcc00": "#d29922",
+              "#FFCC00": "#d29922",
+
+              # ====================================================
+              # GRAYS
+              # ====================================================
+
+              "#666666": "#8b949e",
+              "#666": "#8b949e",
+
+              "#999999": "#8b949e",
+              "#999": "#8b949e",
+
+              "#aaaaaa": "#8b949e",
+              "#AAAAAA": "#8b949e",
+          }
+
+
+          # ========================================================
+          # APPLY HEX COLOR REPLACEMENTS
+          # ========================================================
+
+          for old_color, new_color in replacements.items():
+
+              svg = svg.replace(
+                  old_color,
+                  new_color
+              )
+
+
+          # ========================================================
+          # RGB COLOR REPLACEMENTS
+          # ========================================================
+
+          rgb_replacements = {
+
+              "rgb(0,255,0)": "#39d353",
+              "rgb(0, 255, 0)": "#39d353",
+
+              "rgb(0,0,255)": "#58a6ff",
+              "rgb(0, 0, 255)": "#58a6ff",
+
+              "rgb(255,0,0)": "#f778ba",
+              "rgb(255, 0, 0)": "#f778ba",
+
+              "rgb(255,255,0)": "#d29922",
+              "rgb(255, 255, 0)": "#d29922",
+
+              "rgb(255,255,255)": "#0d1117",
+              "rgb(255, 255, 255)": "#0d1117",
+
+              "rgb(0,0,0)": "#0d1117",
+              "rgb(0, 0, 0)": "#0d1117",
+          }
+
+
+          for old_color, new_color in rgb_replacements.items():
+
+              svg = svg.replace(
+                  old_color,
+                  new_color
+              )
+
+
+          # ========================================================
+          # TEXT COLORS
+          # ========================================================
+
+          svg = re.sub(
+              r'fill=["\']#000000["\']',
+              'fill="#f0f6fc"',
+              svg,
+              flags=re.IGNORECASE
+          )
+
+          svg = re.sub(
+              r'fill=["\']black["\']',
+              'fill="#f0f6fc"',
+              svg,
+              flags=re.IGNORECASE
+          )
+
+
+          # ========================================================
+          # COMMON BORDER COLORS
+          # ========================================================
+
+          svg = svg.replace(
+              "#333333",
+              "#30363d"
+          )
+
+          svg = svg.replace(
+              "#333",
+              "#30363d"
+          )
+
+
+          # ========================================================
+          # SAVE DARK VERSION
+          # ========================================================
+
+          output_file.write_text(
+              svg,
+              encoding="utf-8"
+          )
+
+          print()
+          print("==============================================")
+          print(" DARK GIT BLOCK GENERATED")
+          print("==============================================")
+          print(f"Input : {input_file}")
+          print(f"Output: {output_file}")
+          print("==============================================")
+          print()
+
           PY
 
-      # Commit generated files
+
+      # ============================================================
+      # 4. COMMIT AND PUSH
+      # ============================================================
+
       - name: Commit & Push
         shell: bash
         run: |
+
           git config user.name "github-actions"
+
           git config user.email "github-actions@github.com"
 
           git add -A .
@@ -94,7 +290,8 @@ jobs:
 
           git commit -m "generated"
 
-          # Get any changes made to main while the action was running
+          # Get latest remote changes before pushing
           git pull --rebase origin main
 
+          # Push generated files
           git push origin HEAD:main
