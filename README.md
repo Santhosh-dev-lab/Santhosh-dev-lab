@@ -28,7 +28,16 @@ I'm a passionate **Software Developer** from India. I love building software tha
   <img src="https://user-images.githubusercontent.com/74038190/212281775-b468df30-4edc-4bf8-a4ee-f52e1aaddc86.gif" width="70" height="70" alt="Git">
   <img src="https://skillicons.dev/icons?i=kafka" width="70" height="70" alt="Kafka">
   <img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="70" height="70" alt="VS Code">
- 
+</p>
+
+<h2 align="center">📊 GitHub Contributions</h2>
+
+<p align="center">
+  <img
+    src="./profile-3d-contrib/profile-green-animate.svg"
+    width="900"
+    alt="3D GitHub Contribution Graph"
+  />
 </p>
 
 ### 🔗 Connect with me
