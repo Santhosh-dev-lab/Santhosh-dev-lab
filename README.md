@@ -16,7 +16,7 @@
 </h2>
 
 <p align="center">
-  Software Developer • Backend • Cloud • DevOps • AI Research
+  Software Developer • Backend • Cloud • AI Research
 </p>
 
 <p align="center">
